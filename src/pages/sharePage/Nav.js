@@ -66,24 +66,24 @@ export const Nav = () => {
             </div>
             <ul class="flex items-center hidden space-x-8 lg:flex">
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/login"
                   aria-label="Sign in"
                   title="Sign in"
                   class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                 >
-                  Sign in
-                </a>
+                  Login
+                </Link>
               </li>
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/register"
                   class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                   aria-label="Sign up"
                   title="Sign up"
                 >
-                  Sign up
-                </a>
+                  Register
+                </Link>
               </li>
             </ul>
             <div class="lg:hidden">

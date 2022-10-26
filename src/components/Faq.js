@@ -3,7 +3,7 @@ import React from 'react';
 const Faq = () => {
     return (
         <div>
-            <h1>this is faq</h1>
+            <h2>this is faq</h2>
         </div>
     );
 };

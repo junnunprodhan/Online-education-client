@@ -1,17 +1,31 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+
+import { Link,} from 'react-router-dom';
+
 
 const Login = () => {
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email,password)
+
+    }
+
+
+
     return (
         <div className='flex justify-center items-center pt-8'>
         <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
           <div className='mb-8 text-center'>
-            <h1 className='my-3 text-4xl font-bold'>Sign in</h1>
+            <h1 className='my-3 text-4xl font-bold'>Log in</h1>
             <p className='text-sm text-gray-400'>
-              Sign in to access your account
+              Log in to access your account
             </p>
           </div>
           <form
+            onSubmit={handleSubmit}
             noValidate=''
             action=''
             className='space-y-6 ng-untouched ng-pristine ng-valid'
@@ -51,7 +65,7 @@ const Login = () => {
                 type='submit'
                 className='w-full px-8 py-3 font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-100'
               >
-                Sign in
+                Log in
               </button>
             </div>
           </form>
@@ -99,7 +113,7 @@ const Login = () => {
           <p className='px-6 text-sm text-center text-gray-400'>
             Don't have an account yet?{' '}
             <Link to='/register' className='hover:underline text-gray-600'>
-              Sign up
+              Register
             </Link>
             .
           </p>

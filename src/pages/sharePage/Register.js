@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     return (
@@ -16,13 +17,26 @@ const Register = () => {
           <div className='space-y-4'>
             <div>
               <label htmlFor='email' className='block mb-2 text-sm'>
-                Name
+                Full Name
               </label>
               <input
                 type='text'
                 name='name'
                 id='name'
                 placeholder='Enter Your Name Here'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'
+                data-temp-mail-org='0'
+              />
+            </div>
+            <div>
+              <label htmlFor='photoUel' className='block mb-2 text-sm'>
+                PhotoUrl
+              </label>
+              <input
+                type='text'
+                name='photoUrl'
+                id='photoUrl'
+                placeholder='Enter Your Photo Url'
                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'
                 data-temp-mail-org='0'
               />
@@ -104,9 +118,9 @@ const Register = () => {
         </div>
         <p className='px-6 text-sm text-center text-gray-400'>
           Already have an account yet?{' '}
-          <a href='#' className='hover:underline text-gray-600'>
-            Sign In
-          </a>
+          <Link to='/login' className='hover:underline text-gray-600'>
+            Log in
+          </Link>
           .
         </p>
       </div>

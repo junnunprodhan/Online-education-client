@@ -1,10 +1,11 @@
 
 import './App.css';
+import Nav from './pages/sharePage/Nav';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className='text-4xl'>my name is junnun</h1>
+    <div>
+      <Nav></Nav>
     </div>
   );
 }

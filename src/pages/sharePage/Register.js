@@ -4,6 +4,10 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/Hook/Hook';
 
 const Register = () => {
+  const [error, setError] = useState('');
+  const [accepted, setAccepted] = useState(false);
+  const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
+  useTitle('Register')
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -13,8 +17,43 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, photoUrl, email, password)
+
+        createUser(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            setError('');
+            form.reset();
+            handleUpdateUserProfile(name, photoUrl);
+            handleEmailVerification();
+            alert('Please verify your email address.')
+        })
+        .catch(e => {
+            console.error(e);
+            setError(e.message);
+        });
        
     }
+    const handleUpdateUserProfile = (name, photoUrl) => {
+      const profile = {
+          displayName: name,
+          photoURL: photoUrl
+      }
+
+      updateUserProfile(profile)
+          .then(() => { })
+          .catch(error => console.error(error));
+  }
+
+  const handleEmailVerification  = () => {
+      verifyEmail()
+      .then(() =>{})
+      .catch(error => console.error(error));
+  }
+
+  const handleAccepted = event => {
+      setAccepted(event.target.checked)
+  }
 
 
     return (

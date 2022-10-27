@@ -34,9 +34,7 @@ const Header = () => {
             </span>
           </h2>
           <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae. explicabo.
+          Programming helps in speeding up the input and output processes in a machine. It is important to automate, collect, manage, calculate, and analyze the processing of data and information accurately. Programming helps create software and applications that help computer and mobile users in daily life.
           </p>
           <div className="flex items-center">
             <Link

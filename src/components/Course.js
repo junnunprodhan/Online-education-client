@@ -26,7 +26,7 @@ const Course = ({course}) => {
           type="button"
           className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-gray-900 text-white"
         >
-         <Link to={`/courses/${id}`}>Read More</Link>
+         <Link to={`/courses/${id}`}>Read Details</Link>
         </button>
       </div>
     </div>

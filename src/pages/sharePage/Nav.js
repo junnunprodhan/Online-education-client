@@ -9,8 +9,7 @@ export const Nav = () => {
   const [them, setThem] = useState(true);
 
   const handleLogout = () => {
-    logout()
-      
+    logout();
   };
 
   return (
@@ -118,9 +117,19 @@ export const Nav = () => {
                 </li>
               </ul>
             )}
-            
-          {/* <Toggle></Toggle> */}
           </div>
+          <label
+            for="Toggle2"
+            className="inline-flex items-center space-x-4 cursor-pointer text-gray-100"
+          >
+            <span>White</span>
+            <span className="relative">
+              <input id="Toggle2" type="checkbox" className="hidden peer" />
+              <div className="w-10 h-4 rounded-full shadow bg-gray-600 peer-checked:dark:bg-violet-400"></div>
+              <div className="absolute left-0 w-6 h-6 rounded-full shadow -inset-y-1 peer-checked:right-0 peer-checked:left-aut bg-violet-400"></div>
+            </span>
+            <span>Dark</span>
+          </label>
 
           <div className="lg:hidden">
             <button

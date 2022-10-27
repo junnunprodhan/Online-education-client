@@ -2,11 +2,15 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import { CiBrightnessDown } from "react-icons/ci";
 
 export const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logout } = useContext(AuthContext);
-  const [them, setThem] = useState(true);
+  const [them, setThem] = useState(false);
+  const handleClick =event=>{
+    setThem(current=>!current)
+  }
 
   const handleLogout = () => {
     logout();
@@ -117,20 +121,21 @@ export const Nav = () => {
                 </li>
               </ul>
             )}
-          </div>
-          <label
-            for="Toggle2"
-            className="inline-flex items-center space-x-4 cursor-pointer text-gray-100"
-          >
-            <span>White</span>
-            <span className="relative">
-              <input id="Toggle2" type="checkbox" className="hidden peer" />
-              <div className="w-10 h-4 rounded-full shadow bg-gray-600 peer-checked:dark:bg-violet-400"></div>
-              <div className="absolute left-0 w-6 h-6 rounded-full shadow -inset-y-1 peer-checked:right-0 peer-checked:left-aut bg-violet-400"></div>
-            </span>
-            <span>Dark</span>
-          </label>
 
+            <li className="text-sky-50 mt-2">
+              <button onClick={handleClick}>
+                {them?
+                 <div className="flex">
+                  <CiBrightnessDown className="text-white text-2xl"></CiBrightnessDown>
+                  <span>Light</span>
+                 </div>:<div className="flex">
+                  <CiBrightnessDown className="text-2xl text-gray-500"></CiBrightnessDown>
+                  <span>Dark</span>
+                 </div>}
+              </button>
+            </li>
+          </div>
+      
           <div className="lg:hidden">
             <button
               aria-label="Open Menu"

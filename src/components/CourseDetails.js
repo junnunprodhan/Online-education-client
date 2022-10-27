@@ -1,19 +1,24 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import Pdf from "react-to-pdf";
 
 const CourseDetails = () => {
   const cousrsDetails =useLoaderData();
   console.log(cousrsDetails)
   const {img,title,price,time,author,disc}=cousrsDetails;
+  const ref = React.createRef();
   return (
-    <div>
-    
+    <div className="text-center">
+       <Pdf targetRef={ref} filename="code-example.pdf">
+        {({ toPdf }) => <button onClick={toPdf} className='text-center mt-12 inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide bg-slate-700 text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'>Download pdf</button>}
+      </Pdf>
+      <div ref={ref}>
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
      
       <div className="relative mb-6 sm:mx-auto md:mb-10 md:max-w-md lg:max-w-lg">
         <img
           className="object-cover w-full h-56 rounded shadow-lg md:h-64 lg:h-80"
-          src='https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png'
+          src={img}
           alt=""
         />
       </div>
@@ -31,7 +36,7 @@ const CourseDetails = () => {
          Isntructor : {author}
         </p>
         <p className="mb-5 text-base text-gray-700 md:text-lg">
-         Duration : {time} mibutes
+         Duration : {time} minutes
         </p>
         <p className="mb-5 text-base text-gray-700 md:text-lg">
          Price :{price}$
@@ -43,12 +48,13 @@ const CourseDetails = () => {
             to="/pricing"
             className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide bg-slate-700 text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
           >
-           Get Primium Access
+           Get Premium Access
           </Link>
           </button>
           
         </div>
       </div>
+    </div>
     </div>
     </div>
   );

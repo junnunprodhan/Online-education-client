@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Course = ({course}) => {
-  const {title,price,img,time}=course
+  const {id,title,price,img,time}=course
   return (
     <div className="max-w-xs rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
       <img
@@ -25,7 +26,7 @@ const Course = ({course}) => {
           type="button"
           className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-gray-900 text-white"
         >
-          Read more
+         <Link to={`/courses/${id}`}>Read More</Link>
         </button>
       </div>
     </div>
